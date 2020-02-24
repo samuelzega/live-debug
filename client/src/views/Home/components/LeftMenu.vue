@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<style>
+<script>
 import ArticlesCarousel from './ArticlesCarousel'
 export default {
   name: 'LeftMenu',
@@ -49,7 +49,7 @@ export default {
     ArticlesCarousel
   }
 }
-</style>
+</script>
 
 <style>
 </style>

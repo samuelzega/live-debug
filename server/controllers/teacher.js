@@ -1,9 +1,9 @@
-const { Teacher } = require('../models');
-const { generateToken } = require('../helpers/jwt');
-const { comparePassword } = require('../helpers/bcrypt');
+const { Teacher } = require('../models')
+const { generateToken } = require('../helpers/jwt')
+const { comparePassword } = require('../helpers/bcrypt')
 class TeacherController {
-  static register(res, req, next) {
-    const { email, password } = res.body;
+  static register(req, res, next) {
+    const { email, password } = req.body
     Teacher.create({
       email,
       password
@@ -12,17 +12,17 @@ class TeacherController {
         const payload = {
           id: response.id,
           email: response.email
-        };
-        const access_token = generateToken(payload);
-        req.status(200).json({
+        }
+        const access_token = generateToken(payload)
+        res.status(201).json({
           message: 'Successfully Register',
           access_token
-        });
+        })
       })
-      .catch(err => next(err));
+      .catch(err => next(err))
   }
   static login(req, res, next) {
-    const { email, password } = req.body;
+    const { email, password } = req.body
     Teacher.findOne({
       where: {
         email: email || ''
@@ -34,26 +34,26 @@ class TeacherController {
             const payload = {
               id: response.id,
               email: response.email
-            };
-            const access_token = generateToken(payload);
+            }
+            const access_token = generateToken(payload)
             res.status(200).json({
               message: 'Successfully Login',
               access_token
-            });
+            })
           } else {
             next({
               status: 400,
               message: 'Invalid email or password'
-            });
+            })
           }
         } else {
           next({
             status: 400,
             message: 'Invalid email or password'
-          });
+          })
         }
       })
-      .catch(err => next(err));
+      .catch(err => next(err))
   }
 }
-module.exports = TeacherController;
+module.exports = TeacherController

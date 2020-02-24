@@ -16,15 +16,15 @@
 export default {
   name: 'RightMenu',
   methods: {
-    fetchArticles () {
+    fetchArticles() {
       this.$store.dispatch('fetchArticles')
     }
   },
-  created: {
+  created() {
     this.fetchArticles()
   },
   computed: {
-    articles () {
+    articles() {
       return this.$store.state.articles
     }
   }

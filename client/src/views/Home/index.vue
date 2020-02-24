@@ -9,20 +9,20 @@
 </template>
 
 <script>
-import LeftMenu from "./components/LeftMenu";
-import RightMenu from "./components/RightMenu";
+import LeftMenu from './components/LeftMenu'
+import RightMenu from './components/RightMenu'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     LeftMenu,
     RightMenu
   },
   methods: {
-    toChat() {
-      this.$router.push("/tanya-dokter");
+    toChat () {
+      this.$router.push('/tanya-dokter')
     }
   }
-};
+}
 </script>
 
 <style>
