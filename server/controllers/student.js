@@ -19,10 +19,10 @@ class StudentController {
         .then(response => {
           // console.log('responsenya', response)
 
-          res.status(201).json(`{
+          res.status(201).json({
             message: 'Successfully submit score',
             student: response
-          }`)
+          })
         })
         .catch(next(err))
     }
